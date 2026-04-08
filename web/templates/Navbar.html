@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             </div>
-            <div class="right"><button><a href="/web/templates/sign-in.html">Login Please</a></button></div>
+            <div class="right"><button><a href="{% url 'signup' %}">Sign Up</a></button></div>
         </nav>
     
     </body>

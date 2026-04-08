@@ -1,19 +1,21 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGN-UP PAGE</title>
-     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+    <link rel="import" href="sign-up.html">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- <link rel="stylesheet" href="/web/static/css/style.css"> -->
-    <link rel="import" href="sign-in.html">
 </head>
 <body>
     <div>
         <div class="container">
-            <h2>Sign Up</h2>
-            <form method="GET">
+            <h2>Sign In</h2>
+            <form method="POST">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Enter your username" required />
@@ -22,10 +24,10 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password" required />
                 </div>
-                <button type="submit" class="submit-btn">Sign Up</button>
+                <button type="submit" class="submit-btn">Sign In</button>
             </form>
             <div class="signup-link">
-                Don't have an account? <a href="sign-in.html">Sign In</a>
+                Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
             </div>
         </div>
     </div>
