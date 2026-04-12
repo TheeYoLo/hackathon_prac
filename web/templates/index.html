@@ -9,10 +9,16 @@
     <title>HOME</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- <link rel="stylesheet" href="/web/static/css/style.css"> -->
-    <link rel="import" href="sign-in.html">
+    <!-- <link rel="import" href="sign-in.html"> -->
     
 </head>
 <body>
     {% include "Navbar.html" %}
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}!</h1>
+    {% else %}
+        <h1>Welcome to the Notes App!</h1>
+        <p>Please <a href="{% url 'account_login' %}">log in</a> or <a href="{% url 'account_signup' %}">sign up</a> to access your notes.</p>
+    {% endif %}
 </body>
 </html>
