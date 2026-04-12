@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %} -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- <link rel="stylesheet" href="/web/static/css/style.css"> -->
-    <!-- <link rel="import" href="sign-in.html"> -->
+    <link rel="stylesheet" href="/web/static/css/style.css">
+    <link rel="import" href="sign_up.html">
     
 </head>
 <body>
@@ -20,5 +20,70 @@
         <h1>Welcome to the Notes App!</h1>
         <p>Please <a href="{% url 'account_login' %}">log in</a> or <a href="{% url 'account_signup' %}">sign up</a> to access your notes.</p>
     {% endif %}
+    <div id="nav-placeholder"></div>
+
+    <!-- {% include "Navbar.html" %} -->
+
+<!-- ekhan er nich theke index page suru -->
+
+<div class="overlay" id="noteOverlay">
+    <div class="modal">
+        <h3>Create New Note</h3>
+        <form action="{% url 'add_note' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Enter Note Title..." required>
+            
+            <div class="modal-buttons">
+                <button type="button" class="cancel-btn" id="closeBtn">Cancel</button>
+                <button type="submit" class="submit-btn">Save Note</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    <section class="main">
+        <div class="main-left">
+            <div class="main-left-upper">
+                <h2>
+                    Your Notes
+                </h2>
+                <!-- {% if user.is_authenticated %} -->
+               <img  id="addNoteBtn" src="add-square-svgrepo-com.svg" width="26px" height="22px" alt="">
+               <!-- {% endif %} -->
+            </div>
+           <div class="partition"></div>
+                <div id="notesList" class="notes-list-container">
+        </div>
+
+         
+        </div>
+      <div class="main-right">
+    <div id="editorContainer" style="display: none; height: 100%; padding: 20px; box-sizing: border-box;">
+        <div class="editor-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h1 id="activeNoteTitle" style="color: white; font-family: sans-serif;"></h1>
+            <div class="editor-actions">
+                <button id="editBtn" class="action-btn">Edit</button>
+                <button id="saveBtnRight" class="action-btn" style="display: none; background-color: #28a745;">Save</button>
+            </div>
+        </div>
+        <textarea id="noteTextArea" readonly placeholder="Click Edit to start writing..."></textarea>
+    </div>
+    
+    <div id="noNotePlaceholder" style="color: #888; display: flex; justify-content: center; align-items: center; height: 100%;">
+        <h3>Select a note to start writing</h3>
+    </div>
+</div>
+
+    </section>
+
+
+    <script src="/web/static/js/script.js"></script>
 </body>
+<script>
+
+    // jodi include kore dis navbar.html then niche ei script ta kete dis
+    let Navbar= fetch('components/Navbar.html')
+    Navbar.then(r => r.text()).then(html => document.getElementById('nav-placeholder').innerHTML = html)
+</script>
 </html>

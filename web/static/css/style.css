@@ -1,12 +1,12 @@
-
+  *{
+    margin: 0;
+    padding: 0;
+  }
   body {
       font-family: Arial, sans-serif;
       background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      color: black;
+      
     }
     .login-panel {
       background: white;
@@ -54,3 +54,278 @@
       color: #007bff;
       text-decoration: none;
     }
+
+  .middle ul{
+    display: flex; 
+    justify-content: space-between; 
+    gap: 40px;
+    /* align-items: center; */
+    list-style: none;
+   
+  }
+
+  .middle a {
+     text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+ .middle a:hover{
+  color: rgb(232, 30, 64);
+  transition: 0.4s ease-in;
+ }
+
+  nav{
+    background-color: rgb(165, 155, 155);
+    height: 10vh;
+    padding: 0px 10px;
+    
+  }
+  nav .right button{
+    width: 8vw;
+    border: 1px solid black;
+    border-radius: 14px;
+    padding: 8px 10px;
+    background-color: rgba(60, 58, 58, 0.658);
+  }
+  nav .right button a{
+    color: rgba(255, 255, 255, 0.788);
+    font-size: 18px;
+    text-decoration: none;
+
+  }
+  .logo{
+    font-size: 1.8rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .user-pfp{
+    border: 1px solid black;
+    /* background-color: black; */
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    
+  }
+  .user-pfp img{
+    position: absolute;
+    object-fit: fill;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    
+
+  }
+  .dropdown{
+    position: relative;
+  }
+  .dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.dropdown-content {
+  font-size: 0.68rem;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 10px;
+  right: 20px;
+  background-color: rgb(44, 43, 43);
+  min-width: 44px;
+  text-align: center;
+}
+.dropdown-content a{
+  text-decoration: none;
+  color: white;
+}
+
+/* main css starts from here */
+.main{
+  background-color: rgb(26, 26, 26);
+  width: 98.8vw;
+  height: fit-content;
+  display: flex;
+
+}
+.main-left{
+  margin: 10px;
+  background-color: rgb(58, 54, 58);
+  width: 20vw;
+  height: 100vh;
+  border-radius: 10px;
+}
+.main-right{
+  background-color: rgb(64, 60, 61);
+  margin: 10px;
+  width: 78.8vw;
+  height: 100vh;
+  border-radius: 10px;
+
+}
+
+.main-left-upper{
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(176, 176, 176);
+}
+.main-left-upper img{
+  filter: invert(0);
+  cursor: pointer;
+}
+
+/* The new note overlay known as modal css starts from here */
+/* Overlay Background */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Popup Box */
+.modal {
+    background: rgb(119, 119, 119);
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+   
+}
+
+.modal h3 {
+    margin-bottom: 15px;
+}
+
+.modal input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    background-color: #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Important for padding */
+}
+
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.submit-btn{
+  background-color: #3fb3b3;
+}
+
+.cancel-btn {
+    background: #bcbcbc;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover { 
+  background: #ddd; 
+}
+/* notes list css */
+.notes-list-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.note-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex; /* Makes title and button sit side-by-side */
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.delete-btn:hover {
+    color: #ff4d4d; /* Turns red when you want to delete */
+    transform: scale(1.2);
+}
+.note-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 3px solid rgb(232, 30, 64); /* Matches your hover color */
+}
+.partition{
+width: 14vw;
+border: 1px solid rgb(3, 3, 3);
+margin: 0px 20px;
+}
+/* main-right css texts */
+
+#noteTextArea {
+    width: 100%;
+    height: 80vh;
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace; /* Readme/Code feel */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    outline: none;
+    resize: none;
+}
+
+/* Scrollbar styling for the editor */
+#noteTextArea::-webkit-scrollbar {
+    width: 8px;
+}
+#noteTextArea::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+.action-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #007bff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+/* When the textarea is editable, give it a slight border so the user knows */
+#noteTextArea.editing {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 8px;
+}
